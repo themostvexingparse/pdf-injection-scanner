@@ -1,0 +1,8 @@
+{
+  "_comment": "Copy to research/local_docs.json (git-ignored) and list your own benign PDFs. Paths may be absolute or relative to the repository root.",
+  "train":   ["local/documents/report_a.pdf", "local/documents/assignment_b.pdf"],
+  "test":    ["local/documents/manual_c.pdf"],
+  "calib":   ["local/documents/report_a.pdf", "local/documents/assignment_b.pdf", "local/documents/slides_d.pdf"],
+  "heldout": ["local/documents/assignment_e.pdf", "local/documents/manual_c.pdf"],
+  "probe":   ["local/documents/document_with_known_hidden_text.pdf"]
+}

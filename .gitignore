@@ -1,0 +1,37 @@
+# --- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Large model files: fetched with scripts/fetch_models.py (each ONNX file is ~127 MB)
+/models/
+
+# --- Private local data: never publish
+# your own benign PDFs, notes and research outputs that quote their text
+local/
+research/local_docs.json
+research/results_*.json
+research/*.log
+
+# --- Downloaded datasets, embedding caches, extracted model candidates (~1 GB)
+research/data/
+
+# --- Generated test corpus (python tests/gen_corpus.py) and scan reports
+tests/corpus/
+*.report.json
+
+# --- Scanner outputs
+*_safe.txt
+*.flattened.pdf
+pdfscan_ft*.zip
+
+# --- Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

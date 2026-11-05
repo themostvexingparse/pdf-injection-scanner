@@ -1,0 +1,9 @@
+# keep binary test fixtures and model data byte-exact (no line-ending conversion)
+*.pdf binary
+*.npz binary
+*.onnx binary
+*.ipynb text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
