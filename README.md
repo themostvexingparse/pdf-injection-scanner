@@ -98,8 +98,10 @@ python scripts/fetch_models.py      # optional: embedding models (~250 MB)
 ```
 
 Without the models the scanner still runs; the embedding signal is skipped and reported as
-unavailable. `python scripts/fetch_models.py --base-only` fetches only the base model (the ensemble
-member is then skipped). poppler's/xpdf's `pdftotext` is used as a fifth extractor when it is on `PATH`.
+unavailable. The base model comes from the Hugging Face Hub (pinned revision); the fine-tuned ensemble
+member is a release asset of this repository. If the member is not available the script says so and
+the scanner uses the base model alone (`--base-only` skips it explicitly). Every ONNX file is checked
+against the hash its thresholds were calibrated on. poppler's/xpdf's `pdftotext` is used as a fifth extractor when it is on `PATH`.
 
 ## Usage
 

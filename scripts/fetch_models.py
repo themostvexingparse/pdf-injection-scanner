@@ -76,7 +76,13 @@ def member():
     if os.path.exists(onnx) and sha256(onnx) == want:
         print("ensemble member: already present"); return
     print("ensemble member: fine-tuned ft_e2_lowlr")
-    with zipfile.ZipFile(io.BytesIO(fetch(MEMBER_URL))) as z:
+    try:
+        data = fetch(MEMBER_URL)
+    except OSError as e:  # urllib's HTTPError/URLError are OSErrors
+        print(f"ensemble member: not available ({e}). The scanner runs with the base model alone; "
+              "the member can be rebuilt with notebooks/pdfscan_finetune.ipynb and research/install_ensemble.py.")
+        return
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
         z.extractall(MODELS)
     if sha256(onnx) != want:
         sys.exit("ensemble member: ONNX hash does not match pdfscan/models/probe_ft_e2_lowlr.json")
